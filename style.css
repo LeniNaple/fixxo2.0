@@ -679,6 +679,7 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-top: rgb(97, 99, 101, 0.4) solid 1px;
 }
     .__copyright .__social-media-links a {
         font-size: 18px;
