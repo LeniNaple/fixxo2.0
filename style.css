@@ -7,6 +7,7 @@
     --linear-gradient-dark: #e6e6e6;
     --color-gray-3: #bebebe;
     --color-gray-4: #616365;
+    --color-gray-5: #f8f8f8;
     --color-font-main: #222529;
     --color-dark: #23262a;
     --color-shadow: rgba(0, 0, 0, 0.06); 
@@ -85,7 +86,7 @@ a {
     align-items: center;
     justify-content: center;
     color: var(--color-white);
-    transition: background 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
 }
     .btn-theme-dark p {
         margin: 0;
@@ -93,9 +94,9 @@ a {
         font-weight: var(--font-weight-semi-bold);   
     } 
         .btn-theme-dark:hover {
-            background-color: var(--color-theme-red);
+            background-color: var(--color-white);
             text-decoration: none;
-            color: var(--color-white);
+            color: var(--color-dark);
         }
         .btn-theme-dark .line-button-l-1 {
             position: absolute;
@@ -104,6 +105,7 @@ a {
             top: 10px;
             left: 10px;
             width: 20px;
+            transition: all 200ms ease-in-out;
         }
         .btn-theme-dark .line-button-l-2 {
             position: absolute;
@@ -112,6 +114,7 @@ a {
             top: 10px;
             left: 10px;
             height: 20px;
+            transition: all 200ms ease-in-out;
         }
         .btn-theme-dark .line-button-r-1 {
             position: absolute;
@@ -120,6 +123,7 @@ a {
             bottom: 10px;
             right: 10px;
             width: 20px;
+            transition: all 200ms ease-in-out;
         }
         .btn-theme-dark .line-button-r-2 {
             position: absolute;
@@ -128,7 +132,24 @@ a {
             bottom: 10px;
             right: 10px;
             height: 20px;
+            transition: all 200ms ease-in-out;
         }
+            .btn-theme-dark:hover .line-button-l-1 {
+                background-color: var(--color-dark);
+                border: 1px solid var(--color-dark);
+            }
+            .btn-theme-dark:hover .line-button-l-2 {
+                background-color: var(--color-dark);
+                border: 1px solid var(--color-dark);
+            }
+            .btn-theme-dark:hover .line-button-r-1 {
+                background-color: var(--color-dark);
+                border: 1px solid var(--color-dark);
+            }
+            .btn-theme-dark:hover .line-button-r-2 {
+                background-color: var(--color-dark);
+                border: 1px solid var(--color-dark);
+            }
 
 /* Red button -> black */
 .btn-theme-red {
@@ -500,19 +521,40 @@ header {
     gap: 30px;
     margin-bottom: 60px;
 }
-    .__banners .__banner-img  {
+    .__banners .__banner-img-left  {
         position: relative;
     }
-        .__banners .__banner-img img {
-            
-        }
-        .__banners .__banner-img .__banner-text {
+        .__banners .__banner-img-left .__banner-text {
             position: absolute;
-            top: 0;
-            right: 0;
+            top: 85px;
+            right: 5%;
         }
+            .__banners .__banner-img-left .__banner-text h1 {
+                font-weight: var(--font-weight-bold);
+                font-size: 45px;
+                color: var(--color-white);
+            }
+            .__banners .__banner-img-left .__banner-text .btn-theme-dark {
+                margin-top: 35px;
+            }
+    .__banners .__banner-img-right  {
+        position: relative;
+    }
+        .__banners .__banner-img-right .__banner-text {
+            position: absolute;
+            top: 85px;
+            left: 5%;
+        }
+            .__banners .__banner-img-right .__banner-text h1 {
+                font-weight: var(--font-weight-bold);
+                font-size: 45px;
+                color: var(--color-dark);
+            }
+            .__banners .__banner-img-right .__banner-text .btn-theme-white {
+                margin-top: 35px;
+            }
 
-
+  
 
 
 .__flash-sale-left {
@@ -580,6 +622,80 @@ header {
                 justify-content: end;
             }
 
+
+
+.__destination-buttons .container {
+    max-width: 1110px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: rgb(97, 99, 101, 0.4) solid 1px;
+    margin-top: 85px;
+    margin-bottom: 70px;
+}
+    .__destination-buttons .container .__support-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+        .__destination-buttons .container .__support-buttons a {
+            color: var(--color-dark);
+            background-color: var(--color-white);
+            box-shadow: 0 0 6px 4px var(--color-shadow);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            font-size: 25px;
+            text-decoration: none;
+            transition: all 200ms ease-in-out;
+            margin-top: 60px;
+        }
+            .__destination-buttons .container .__support-buttons a:hover {
+                color: var(--color-theme-red);
+                background-color: var(--color-dark);
+                text-decoration: none;
+            }
+        .__destination-buttons .container .__support-buttons h1 {
+            font-weight: var(--font-weight-bold);
+            font-size: 20px;
+            margin: 30px 0 15px 0;
+        }
+        .__destination-buttons .container .__support-buttons p {
+            font-weight: var(--font-weight-regular);
+            font-size: 16px;
+            color: var(--color-gray-4);
+            margin: 0;
+        }
+
+
+.__copyright {
+    background-color: var(--color-gray-5);
+    height: 110px;
+    margin-bottom: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+    .__copyright .__social-media-links a {
+        font-size: 18px;
+        color: black;
+        padding-left: 10px;
+        padding-right: 10px;   
+        transition: color 200ms ease-in-out;     
+    }
+        .__copyright .__social-media-links a:hover {
+            color: var(--color-theme-red);       
+        }
+    .__copyright p {
+        margin: 10px 0 0 0;
+        color: var(--color-gray-4);
+
+    }
+    
 
 
 
