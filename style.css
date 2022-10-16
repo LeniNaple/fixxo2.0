@@ -282,6 +282,24 @@ a {
                 background-color: var(--color-white);
                 border: 1px solid var(--color-white);
             }
+/* Contact button red-> black */
+.btn-theme-contact {
+    position: relative;
+    background-color: var(--color-theme-red);
+    color: var(--color-white);
+    border: none;
+    padding: 15px 50px;
+    font-weight: var(--font-weight-semi-bold);
+    transition: background 200ms ease-in-out;
+}
+    .btn-theme-contact:hover {
+        color: var(--color-white);
+        background-color: var(--color-dark);
+        text-decoration: none;
+    }
+
+
+
 
 /* Card attributes */
 .card {
@@ -414,6 +432,7 @@ header {
 }
     .__navbar .__nav-links {
         font-weight: var(--font-weight-medium);
+        margin-left: 120px;
     }
         .__navbar .__nav-links a {
             color: var(--color-dark);
@@ -422,6 +441,7 @@ header {
             margin-left: 15px;
             margin-right: 15px;
             transition: color 200ms ease-in-out;
+            
         }
             .__navbar .__nav-links a:hover {
                 color: var(--color-theme-red);
@@ -671,6 +691,98 @@ header {
         }
 
 
+    
+
+/* Contacts page */
+.breadcrumb {
+    margin-top: -110px;
+}
+    .breadcrumb .container {
+        max-width: 1110px;
+    }
+        .breadcrumb .breadcrumb-list {
+            list-style: none;
+            margin: 0 0 30px 0;
+            padding: 0;
+            color: var(--color-theme-red);
+        }   
+                .breadcrumb .breadcrumb-list li {
+                display: inline-block;
+                font-weight: var(--font-weight-medium);
+            }
+                    .breadcrumb .breadcrumb-list li + li:before {
+                    content: ">\00a0";
+                    font-weight: var(--font-weight-regular);
+                    color: var(--color-dark);
+                }
+                .breadcrumb .breadcrumb-list li a {
+                    color: var(--color-dark);
+                }
+                    .breadcrumb .breadcrumb-list li a:hover {
+                        color: var(--color-theme-red);
+                    }
+
+.map {
+    margin-bottom: 70px ;
+}
+    .map .google-map {
+        border: 0; 
+        width: 100%; 
+        height: 380px;
+    }
+    
+.contact-form {
+    margin-bottom: 60px;
+}
+    .contact-form .container {
+        max-width: 1110px;
+        justify-content: center;
+    }
+        .contact-form h2 {
+            font-size: var(--font-size-18);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 30px;
+        }
+        .contact-form form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+            .contact-form form > div {
+                /* positioning of error message */
+                position: relative;
+            }
+                .contact-form form input {
+                    width: 100%;
+                    padding: 18px 20px;
+                    border: 1px solid rgb(97, 99, 101, 0.4);
+                }
+                .contact-form form .textarea {
+                    grid-column: 1/-1;
+                }
+                .contact-form form textarea {
+                    width: 100%;
+                    grid-column: 1/-1;
+                    padding: 18px 20px;
+                    border: 1px solid rgb(97, 99, 101, 0.4);
+                    min-height: 140px;
+                    resize: none;
+                }
+                .contact-form form .error {
+                    color: var(--color-theme-red);
+                    border: 1px solid var(--color-theme-red);
+                }
+                .contact-form form .errorMessage {
+                    color: var(--color-theme-red);
+                    font-size: 0.8em;
+                    /* positioning of error message */
+                    position: absolute;
+                    bottom: -20px;
+                }
+
+
+
+
 .__copyright {
     background-color: var(--color-gray-5);
     height: 110px;
@@ -696,7 +808,6 @@ header {
         color: var(--color-gray-4);
 
     }
-    
 
 
 
