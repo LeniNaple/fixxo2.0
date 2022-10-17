@@ -722,6 +722,7 @@ header {
                         color: var(--color-theme-red);
                     }
 
+/* Dividing map, google */
 .map {
     margin-bottom: 70px ;
 }
@@ -782,7 +783,7 @@ header {
 
 
 
-
+/* On all pages */
 .__copyright {
     background-color: var(--color-gray-5);
     height: 110px;
@@ -806,7 +807,6 @@ header {
     .__copyright p {
         margin: 10px 0 0 0;
         color: var(--color-gray-4);
-
     }
 
 
