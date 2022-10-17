@@ -1,49 +1,62 @@
 const submitForm = event => {
     event.preventDefault()
+    validate(event)
+}
 
-    for (let element of event.target) {
-        if (element.required){
-        
-            let error = ""
+const validate = (event) => {
+    switch(event.type){
+        case 'keyup':
+                validateElement(event.target)
+            break;
 
-            switch(element.type) {
-                case 'text':
-                    if (!isNullOrEmpty(element.value)) {
-                        if (!isMinimumLength(element.value, 2)) {
-                            error = `Your ${element.id} must contain at least 2 letters.`
-                        } 
-                    } else {
-                        error = `You must enter a ${element.id}.`
-                    }
-                    break;
-
-                case 'email':
-                    if (!isNullOrEmpty(element.value)) {
-                        if (!isMinimumLength(element.value, 5)) {
-                            error = `Your ${element.id} must contain at least 5 letters.`
-                        } 
-                    } else {
-                        error = `You must enter an ${element.id}.`
-                    }
-                    break;
-
-                case 'textarea':
-                    if (!isNullOrEmpty(element.value)) {
-                        if (!isMinimumLength(element.value, 10)) {
-                            error = `Your ${element.id} must contain at least 10 letters.`
-                        } 
-                    } else {
-                        error = `You must enter a ${element.id}.`
-                    }
-                    break;
-            }
-
-            document.getElementById(`${element.id}ErrorMessage`).innerText = error
-
-        }    
+        case 'submit':
+            for(let element of event.target)
+                validateElement(element)
+            break;
     }
 }
 
+const validateElement = (element) => {
+
+    if (element.required) {
+        
+        let error = ""
+
+        switch(element.type) {
+            case 'text':
+                if (!isNullOrEmpty(element.value)) {
+                    if (!isMinimumLength(element.value, element.dataset.requiredMin)) {
+                        error = `Your ${element.id} must contain at least ${element.dataset.requiredMin} letters.`
+                    } 
+                } else {
+                    error = `You must enter a ${element.id}.`
+                }
+                break;
+
+            case 'email':
+                if (!isNullOrEmpty(element.value)) {
+                    if (!isEmailValid(element.value)) {
+                        error = `Not a valid ${element.id}.`
+                    } 
+                } else {
+                    error = `You must enter an ${element.id}.`
+                }
+                break;
+
+            case 'textarea':
+                if (!isNullOrEmpty(element.value)) {
+                    if (!isMinimumLength(element.value, element.dataset.requiredMin)) {
+                        error = `Your ${element.id} must contain at least ${element.dataset.requiredMin} letters.`
+                    } 
+                } else {
+                    error = `You must enter a ${element.id}.`
+                }
+                break;
+        }
+
+        document.getElementById(`${element.id}ErrorMessage`).innerText = error
+    } 
+}
 
 const isNullOrEmpty = value => {
     
@@ -63,48 +76,13 @@ const isMinimumLength = (value, minLength = 2) => {
     }
 }
 
+const isEmailValid = (email) => {
 
+    // från https://stackoverflow.com/questions/46155/how-can-i-validate-an-email-address-in-javascript
+    const regEx = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ 
 
+    if (regEx.test(email))
+        return true
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const checkLength = (element, errorMessage = "This field is required", minLength = 2) => {
-//     console.log(element.target.id) 
-
-//     if (element.target.value.length < minLength){
-//         document.getElementById(element.target.id).classList.add('error')
-//         document.getElementById(`${element.target.id}ErrorMessage`).innerText = errorMessage
-//     } else {
-//         document.getElementById(element.target.id).classList.remove('error')
-//         document.getElementById(`${element.target.id}ErrorMessage`).innerText =""
-//     }
-// }
-
-// const validate = (e) => {
- 
-//     switch(e.target.type){
-//         case "text":
-//             checkLength(e, `You must enter a ${e.target.id}`, 3)
-//             break;
-//         case "email":
-//             checkLength(e)
-//             break;
-//         case "textarea":
-//             checkLength(e, `You must enter a ${e.target.id}`, 5)
-//             break;
-//     } 
-// }
+    return false
+}
